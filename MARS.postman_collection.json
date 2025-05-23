@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "9898ff5c-5fe6-4ef3-9b4f-d3f8a1ad2596",
+		"name": "MARS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11633606"
+	},
+	"item": [
+		{
+			"name": "Create User in elasticsearch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"bc2d0f53-5041-46e8-a14c-267875a49f0c\",\n  \"fullName\": \"พิสิษฐ์ ป้อง\",\n  \"address\": \"666/999 คอนโดลุมพินีวิล\",\n  \"phoneNumber\": \"0812345678\",\n  \"photoUrl\": \"https://s3.amazonaws.com/your-bucket/app-001.jpg\",\n  \"status\": \"PENDING\",\n  \"createdDate\": \"2025-05-23T14:00:00Z\",\n  \"updatedDate\": \"2025-05-23T14:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/insurance/_doc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"insurance",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in elasticsearch",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"match_all\": {}\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/insurance/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"insurance",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Insurance in elasticsearch",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/insurance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"insurance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Serach in App",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 12,\n  \"fullName\": \"พิสิษฐ์ ป้อง\",\n  \"address\": \"666/999 คอนโดลุมพินีวิล\",\n  \"phoneNumber\": \"0812345678\",\n  \"photoUrl\": \"https://s3.amazonaws.com/your-bucket/app-001.jpg\",\n  \"status\": \"PENDING\",\n  \"createdDate\": \"2025-05-23T14:00:00Z\",\n  \"updatedDate\": \"2025-05-23T14:00:00Z\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/a51259e2-9699-448d-acac-3e95afdd4a9b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"a51259e2-9699-448d-acac-3e95afdd4a9b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Apllication in App",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data; boundary=<calculated when request is sent>",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "{\"fullName\": \"พิสิษฐ์ นะคับ\", \"address\": \"123 ถนนหลัก\", \"phoneNumber\": \"0812345678\"}",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1f037cb1-774e-4170-81b7-a7f790097667"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Data in App",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fullName",
+							"value": "พิสิษฐ์ อิอิ",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "666/999 sulam",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "09328408",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1f037dbc-9c63-4120-a429-1c4a4dcb1b45"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/a51259e2-9699-448d-acac-3e95afdd4a9b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"a51259e2-9699-448d-acac-3e95afdd4a9b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve in App",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/a51259e2-9699-448d-acac-3e95afdd4a9b/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"a51259e2-9699-448d-acac-3e95afdd4a9b",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject in App",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/a51259e2-9699-448d-acac-3e95afdd4a9b/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"a51259e2-9699-448d-acac-3e95afdd4a9b",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel in App",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/a51259e2-9699-448d-acac-3e95afdd4a9b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"a51259e2-9699-448d-acac-3e95afdd4a9b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
