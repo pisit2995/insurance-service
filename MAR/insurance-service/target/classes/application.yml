@@ -1,0 +1,7 @@
+aws:
+  s3:
+    bucket-name: insurance-photos-bucket
+    region: ap-southeast-2
+    access-key: AKIAYLKIYXBZXD2WKYWC
+    secret-key: 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
+
